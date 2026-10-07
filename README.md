@@ -5,6 +5,19 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/AI%20Security-Prompt%20Injection-red?style=for-the-badge&logo=shield" alt="AI Security: Prompt Injection">
+  <img src="https://img.shields.io/badge/Model-DistilBERT-blue?style=for-the-badge" alt="Model: DistilBERT">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3">
+  <img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch 2">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/abhishekpandaOfficial/enterprise-prompt-injection-detector?style=flat-square&logo=github" alt="GitHub stars">
+  <img src="https://img.shields.io/badge/Dataset-Synthetic-orange?style=flat-square&logo=huggingface" alt="Synthetic dataset">
+  <img src="https://img.shields.io/badge/Status-Research%20Prototype-yellow?style=flat-square" alt="Research prototype">
+</p>
+
+<p align="center">
   <a href="https://huggingface.co/iamabhishekpanda/enterprise-prompt-injection-detector">Hugging Face model</a>
   ·
   <a href="https://huggingface.co/datasets/iamabhishekpanda/enterprise-prompt-injection-dataset">Hugging Face dataset</a>
@@ -38,19 +51,19 @@ A classifier can help identify suspicious input before it reaches a sensitive wo
 
 ## Classification flow
 
-```text
-User or external content
-          |
-          v
-Prompt-injection detector
-       DistilBERT
-       /       \
-      v         v
-   SAFE     INJECTION
-     |           |
-     v           v
-Continue      Block, review,
-workflow      or escalate
+```mermaid
+flowchart TD
+    A["User or external content"] --> B["Prompt-injection detector<br/>DistilBERT"]
+    B -->|SAFE| C["Continue AI workflow"]
+    B -->|INJECTION| D["Block, review, or escalate"]
+    classDef input fill:#e8f1ff,stroke:#3776ab,color:#111
+    classDef detector fill:#fff3cd,stroke:#d39e00,color:#111
+    classDef safe fill:#e8f5e9,stroke:#2e7d32,color:#111
+    classDef alert fill:#ffebee,stroke:#c62828,color:#111
+    class A input
+    class B detector
+    class C safe
+    class D alert
 ```
 
 ## Dataset
@@ -90,6 +103,13 @@ The dataset is intended for research, education, and defensive security experime
 | Precision | 1.0000 |
 | Recall | 1.0000 |
 | F1 score | 1.0000 |
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Accuracy-1.0000-success?style=flat-square" alt="Accuracy 1.0000">
+  <img src="https://img.shields.io/badge/Precision-1.0000-success?style=flat-square" alt="Precision 1.0000">
+  <img src="https://img.shields.io/badge/Recall-1.0000-success?style=flat-square" alt="Recall 1.0000">
+  <img src="https://img.shields.io/badge/F1-1.0000-success?style=flat-square" alt="F1 score 1.0000">
+</p>
 
 ### False-negative check
 
@@ -171,32 +191,39 @@ The confidence score is the model's classification probability. It is not a guar
 
 ### RAG applications
 
-```text
-User query
-    |
-    v
-Prompt-injection detector
-    |
-    +-- SAFE ------> Retrieval ------> LLM
-    |
-    +-- INJECTION -> Security workflow
+```mermaid
+flowchart LR
+    A["User query"] --> B["Prompt-injection detector"]
+    B -->|SAFE| C["Retrieval"]
+    C --> D["LLM"]
+    B -->|INJECTION| E["Security workflow"]
+    classDef input fill:#e8f1ff,stroke:#3776ab,color:#111
+    classDef safe fill:#e8f5e9,stroke:#2e7d32,color:#111
+    classDef alert fill:#ffebee,stroke:#c62828,color:#111
+    class A input
+    class B input
+    class C,D safe
+    class E alert
 ```
 
 ### AI-agent applications
 
-```text
-User or external input
-          |
-          v
-Prompt-injection detector
-          |
-          v
-        Agent
-          |
-          v
-   Tool authorization
-      /      |       \
- Allowed  Denied  Human approval
+```mermaid
+flowchart TD
+    A["User or external input"] --> B["Prompt-injection detector"]
+    B --> C["AI agent"]
+    C --> D["Tool authorization"]
+    D --> E["Allowed"]
+    D --> F["Denied"]
+    D --> G["Human approval"]
+    classDef input fill:#e8f1ff,stroke:#3776ab,color:#111
+    classDef control fill:#fff3cd,stroke:#d39e00,color:#111
+    classDef safe fill:#e8f5e9,stroke:#2e7d32,color:#111
+    classDef alert fill:#ffebee,stroke:#c62828,color:#111
+    class A input
+    class B,C,D control
+    class E safe
+    class F,G alert
 ```
 
 In production, the classifier should be combined with:
