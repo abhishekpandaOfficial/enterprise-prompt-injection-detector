@@ -1,0 +1,234 @@
+# ============================================================
+# Enterprise Prompt Injection Detector
+# Git Ignore Configuration
+# ============================================================
+
+# ------------------------------------------------------------
+# Python
+# ------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+develop-eggs/
+.eggs/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ------------------------------------------------------------
+# Virtual Environments
+# ------------------------------------------------------------
+
+.venv/
+venv/
+env/
+ENV/
+.env/
+.python-version
+
+# ------------------------------------------------------------
+# Environment Variables / Secrets
+# ------------------------------------------------------------
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+# API keys / credentials
+secrets/
+credentials/
+*.secret
+
+# ------------------------------------------------------------
+# macOS
+# ------------------------------------------------------------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Finder
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# ------------------------------------------------------------
+# Visual Studio Code
+# ------------------------------------------------------------
+
+.vscode/
+
+# Keep useful shared VS Code configuration if explicitly added
+# !.vscode/extensions.json
+# !.vscode/settings.json
+
+# ------------------------------------------------------------
+# Jupyter Notebook
+# ------------------------------------------------------------
+
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ------------------------------------------------------------
+# Google Colab
+# ------------------------------------------------------------
+
+.colab/
+
+# ------------------------------------------------------------
+# Hugging Face
+# ------------------------------------------------------------
+
+.cache/
+.cache/huggingface/
+huggingface/
+huggingface_cache/
+
+# Hugging Face token/cache files
+token
+token.json
+
+# ------------------------------------------------------------
+# Machine Learning Model Artifacts
+# ------------------------------------------------------------
+
+# PyTorch
+*.pt
+*.pth
+*.bin
+
+# Safetensors
+*.safetensors
+
+# TensorFlow
+*.h5
+*.keras
+
+# ONNX
+*.onnx
+
+# TensorBoard
+runs/
+tensorboard/
+
+# ML experiment outputs
+wandb/
+mlruns/
+outputs/
+checkpoints/
+artifacts/
+
+# ------------------------------------------------------------
+# Training Outputs
+# ------------------------------------------------------------
+
+training_output/
+training_outputs/
+model_output/
+model_outputs/
+fine_tuned_model/
+fine-tuned-model/
+
+# ------------------------------------------------------------
+# Temporary Files
+# ------------------------------------------------------------
+
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*~
+
+# ------------------------------------------------------------
+# Operating System / IDE
+# ------------------------------------------------------------
+
+.idea/
+*.iml
+
+# ------------------------------------------------------------
+# Data Files
+# ------------------------------------------------------------
+
+# Large local datasets should not normally be committed.
+# The authoritative dataset is hosted on Hugging Face.
+
+*.parquet
+*.feather
+*.pkl
+*.pickle
+
+# Local CSV files can become large.
+# Uncomment if we decide not to keep CSV examples in Git.
+# *.csv
+
+# ------------------------------------------------------------
+# Local Evaluation Outputs
+# ------------------------------------------------------------
+
+evaluation_outputs/
+evaluation_results/
+reports/
+*.html
+
+# ------------------------------------------------------------
+# Temporary notebooks / exports
+# ------------------------------------------------------------
+
+*.html
+*.nbconvert.ipynb
+
+# ------------------------------------------------------------
+# Node / Frontend artifacts
+# ------------------------------------------------------------
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ------------------------------------------------------------
+# Local databases
+# ------------------------------------------------------------
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ------------------------------------------------------------
+# OS / Tool generated files
+# ------------------------------------------------------------
+
+Thumbs.db
+desktop.ini
